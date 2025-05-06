@@ -10,7 +10,9 @@
     "lint": "next lint",
     "payload": "PAYLOAD_CONFIG_PATH=src/custom-config.ts payload",
     "generate:types": "PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types",
-    "db:fresh": "payload migrate:fresh"
+    "db:fresh": "payload migrate:fresh",
+    "db:seed": "bun run src/seed.ts",
+    "db:reset": "bun run db:fresh && bun run db:seed"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
