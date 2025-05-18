@@ -5,13 +5,17 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ListFilterIcon } from "lucide-react";
 import CategorySidebar from "./category-sidebar";
-import { CategoriesGetManyOutput } from "@/app/modules/categories/type";
+import { CategoriesGetManyOutput } from "@/modules/categories/type";
+import { useParams } from "next/navigation";
 
 interface CategoriesProps {
   data: CategoriesGetManyOutput;
 }
 
 const Categories = ({ data }: CategoriesProps) => {
+
+  const params = useParams();
+
   const conatainerRef = useRef<HTMLDivElement>(null);
   const measureRef = useRef<HTMLDivElement>(null);
   const viewAllRef = useRef<HTMLDivElement>(null);
@@ -20,7 +24,8 @@ const Categories = ({ data }: CategoriesProps) => {
   const [isAnyHovered, setIsAnyHovered] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const activeCategory = "all"; // TODO: implement active category
+  const categoryParam = params.category as string | undefined;
+  const activeCategory = categoryParam || 'all'; // TODO: implement active category
 
   const activeCategoryIndex = data.findIndex(
     (cat) => cat.slug === activeCategory
@@ -100,6 +105,7 @@ const Categories = ({ data }: CategoriesProps) => {
 
         <div ref={viewAllRef} className="shrink-0">
           <Button
+          variant={'elevated'}
             className={cn(
               "h-11 px-4 bg-transparent border-transparent rounded-full hover:bg-white hover:border-primary text-black",
               isActiveCategoryHidden && !isAnyHovered && "bg-white border-primary",
