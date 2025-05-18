@@ -82,9 +82,7 @@ export const Navbar = () => {
             variant={"default"}
             className="border-l border-t-0 border-r-0 border-b-0 px-12 h-full rounded-none bg-black text-white hover:text-black hover:bg-pink-400 transition-colors text-lg"
           >
-            <Link href={"/admin"}>
-              Dashboard
-            </Link>
+            <Link href={"/admin"}>Dashboard</Link>
           </Button>
         </div>
       ) : (
