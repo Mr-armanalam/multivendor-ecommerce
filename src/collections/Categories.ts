@@ -8,6 +8,9 @@ export const Categories: CollectionConfig = {
   //   update: () => true,
   //   delete: () => true,
   // },
+  admin: {
+    useAsTitle: 'name'
+  },
   fields: [
     {
       name: "name",
