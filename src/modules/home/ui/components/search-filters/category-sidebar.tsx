@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sheet";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-import { CategoriesGetManyOutput } from "@/app/modules/categories/type";
+import { CategoriesGetManyOutput } from "@/modules/categories/type";
 
 interface CategorySidebarProps {
   open: boolean;
