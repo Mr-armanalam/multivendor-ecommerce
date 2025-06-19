@@ -18,7 +18,7 @@ export const tagsRouter = createTRPCRouter({
         limit: input.limit,
       });
 
-      // await new Promise(resolve => setTimeout(resolve, 1000)); // artificial time a delay
+      await new Promise(resolve => setTimeout(resolve, 1000)); // artificial time a delay
 
       return data;
     }),
